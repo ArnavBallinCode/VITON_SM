@@ -199,7 +199,9 @@ def main():
             current_garment = (current_garment - 1) % len(garments)
             print(f"Switched to: {os.path.basename(garments[current_garment])}")
         elif key == ord('s') or key == ord('S'):
-            filename = f"perfect_tryon_{int(time.time())}.jpg"
+            # Ensure Screenshots directory exists
+            os.makedirs("Screenshots", exist_ok=True)
+            filename = f"Screenshots/perfect_tryon_{int(time.time())}.jpg"
             cv2.imwrite(filename, frame)
             print(f"Screenshot saved: {filename}")
     

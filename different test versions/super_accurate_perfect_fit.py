@@ -486,7 +486,9 @@ def main():
             current_garment = (current_garment - 1) % len(garments)
             print(f"📱 Switched to: {os.path.basename(garments[current_garment])}")
         elif key in [ord('s'), ord('S')]:
-            filename = f"super_accurate_fit_{int(time.time())}.jpg"
+            # Ensure Screenshots directory exists
+            os.makedirs("Screenshots", exist_ok=True)
+            filename = f"Screenshots/super_accurate_fit_{int(time.time())}.jpg"
             cv2.imwrite(filename, result_frame)
             print(f"📸 Screenshot saved: {filename}")
     
